@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шаги рецепта — Админ-панель</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">Кухни мира • Admin</div>
+            <ul class="sidebar-nav">
+                <li><a href="recipes.html" class="active">Рецепты</a></li>
+                <li><a href="categories.html">Категории</a></li>
+                <li><a href="ingredients.html">Ингредиенты</a></li>
+                <li><a href="orders.html">Заказы</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="login.html" class="btn btn-outline btn-sm" style="width: 100%; text-align: center;">Выйти</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="topbar">
+                <h1>Шаги рецепта: «Эчпочмак»</h1>
+                <a href="recipes.html" class="btn btn-outline">← К списку рецептов</a>
+            </div>
+
+            <!-- Форма добавления/редактирования шага -->
+            <div class="card">
+                <h3 style="margin-bottom: 14px; font-size: 16px;">Добавить / Редактировать шаг</h3>
+                <form class="grid-2">
+                    <div>
+                        <div class="form-group">
+                            <label>Название шага * (макс. 40 символов)</label>
+                            <input type="text" maxlength="40" class="form-control" placeholder="Например: Замес теста" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Фотография шага * (до 2 МБ, jpg/jpeg/png/webp)</label>
+                            <input type="file" accept=".jpg,.jpeg,.png,.webp" class="form-control">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <label>Описание шага * (макс. 255 символов)</label>
+                            <textarea rows="4" maxlength="255" class="form-control" placeholder="Подробное описание действий..." required></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Сохранить шаг</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Список шагов -->
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Порядок</th>
+                            <th>Фото</th>
+                            <th>Название шага</th>
+                            <th>Описание</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Шаг 1</strong></td>
+                            <td>
+                                <div class="thumb-preview" style="width: 100px; height: 60px;">
+                                    <img src="https://placehold.co" alt="Шаг 1">
+                                </div>
+                            </td>
+                            <td>Подготовка теста</td>
+                            <td>Смешать кефир, растопленное масло, соль и муку. Замесить мягкое тесто.</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm">Редактировать</button>
+                                <button class="btn btn-danger btn-sm">Удалить</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Шаг 2</strong></td>
+                            <td>
+                                <div class="thumb-preview" style="width: 100px; height: 60px;">
+                                    <img src="https://placehold.co" alt="Шаг 2">
+                                </div>
+                            </td>
+                            <td>Приготовление начинки</td>
+                            <td>Нарезать говядину, картофель и лук мелкими кубиками, посолить и поперчить.</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm">Редактировать</button>
+                                <button class="btn btn-danger btn-sm">Удалить</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

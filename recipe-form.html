@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактирование рецепта — Админ-панель</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">Кухни мира • Admin</div>
+            <ul class="sidebar-nav">
+                <li><a href="recipes.html" class="active">Рецепты</a></li>
+                <li><a href="categories.html">Категории</a></li>
+                <li><a href="ingredients.html">Ингредиенты</a></li>
+                <li><a href="orders.html">Заказы</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="login.html" class="btn btn-outline btn-sm" style="width: 100%; text-align: center;">Выйти</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="topbar">
+                <h1>Создание / Редактирование рецепта</h1>
+                <a href="recipes.html" class="btn btn-outline">← Назад к списку</a>
+            </div>
+
+            <form action="recipes.html" method="get" class="card">
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>Название рецепта * (макс. 20 символов)</label>
+                        <input type="text" maxlength="20" class="form-control" value="Эчпочмак" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Категория рецепта *</label>
+                        <select class="form-control" required>
+                            <option value="1">Первые блюда</option>
+                            <option value="2" selected>Выпечка</option>
+                            <option value="3">Основные блюда</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group has-error">
+                    <label>Описание рецепта * (от 50 до 250 символов)</label>
+                    <textarea rows="3" class="form-control" required>Традиционное татарское и башкирское блюдо.</textarea>
+                    <span class="error-text">Описание должно содержать минимум 50 символов (сейчас 42).</span>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>Время приготовления (в минутах) *</label>
+                        <input type="number" class="form-control" value="80" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Сложность *</label>
+                        <select class="form-control" required>
+                            <option value="easy">легко</option>
+                            <option value="medium" selected>средне</option>
+                            <option value="hard">сложно</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Цена рецепта (формат хх.хх, больше 100 или 0 для бесплатного)</label>
+                    <input type="text" class="form-control" value="450.00" placeholder="0.00">
+                </div>
+
+                <!-- Ингредиенты рецепта (минимум 1) -->
+                <div class="form-group">
+                    <label>Ингредиенты рецепта * (минимум 1)</label>
+                    <div style="border: 1px solid var(--border); padding: 12px; border-radius: 6px; background: #f8fafc;">
+                        <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+                            <select class="form-control">
+                                <option>Мука пшеничная (кг)</option>
+                                <option>Говядина (кг)</option>
+                                <option>Картофель (шт)</option>
+                            </select>
+                            <input type="number" step="0.1" class="form-control" style="max-width: 140px;" value="0.5" placeholder="Кол-во">
+                            <button type="button" class="btn btn-danger btn-sm">Удалить</button>
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                            <select class="form-control">
+                                <option>Говядина (кг)</option>
+                                <option>Мука пшеничная (кг)</option>
+                            </select>
+                            <input type="number" step="0.1" class="form-control" style="max-width: 140px;" value="0.4" placeholder="Кол-во">
+                            <button type="button" class="btn btn-danger btn-sm">Удалить</button>
+                        </div>
+                        <button type="button" class="btn btn-outline btn-sm">+ Добавить строку ингредиента</button>
+                    </div>
+                </div>
+
+                <!-- Фотографии (от 1 до 5, до 2МБ, выбор картинки по умолчанию) -->
+                <div class="form-group">
+                    <label>Фотографии рецепта (1–5 шт, мин. 500x500px, до 2 МБ, jpg/jpeg/png/webp)</label>
+                    <input type="file" multiple accept=".jpg,.jpeg,.png,.webp" class="form-control">
+
+                    <div class="photo-grid">
+                        <div class="photo-item">
+                            <img src="https://placehold.co" alt="Фото 1">
+                            <div style="margin-top: 8px; font-size: 12px;">
+                                <label style="display:flex; align-items:center; gap:4px; margin-bottom: 6px;">
+                                    <input type="radio" name="default_photo" checked> По умолчанию
+                                </label>
+                                <button type="button" class="btn btn-danger btn-sm" style="width:100%;">Удалить фото</button>
+                            </div>
+                        </div>
+
+                        <div class="photo-item">
+                            <img src="https://placehold.co" alt="Фото 2">
+                            <div style="margin-top: 8px; font-size: 12px;">
+                                <label style="display:flex; align-items:center; gap:4px; margin-bottom: 6px;">
+                                    <input type="radio" name="default_photo"> По умолчанию
+                                </label>
+                                <button type="button" class="btn btn-danger btn-sm" style="width:100%;">Удалить фото</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 12px; margin-top: 24px;">
+                    <button type="submit" class="btn btn-primary">Сохранить рецепт</button>
+                    <a href="recipe-steps.html" class="btn btn-outline">Перейти к шагам приготовления →</a>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

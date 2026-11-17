@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в админ-панель — Кухни мира</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <h1>Кухни мира</h1>
+            <p class="subtitle">Панель управления (Год единства народов России 2026)</p>
+
+            <!-- Переход на recipes.html имитирует успешный вход -->
+            <form action="recipes.html" method="get">
+                <div class="form-group">
+                    <label for="email">Электронная почта *</label>
+                    <input type="email" id="email" class="form-control" value="admin@champ2026" required>
+                </div>
+
+                <!-- Пример поля с ошибкой валидации (класс has-error) -->
+                <div class="form-group has-error">
+                    <label for="password">Пароль *</label>
+                    <input type="password" id="password" class="form-control" value="champ2026" required>
+                    <span class="error-text">Пример ошибки: Неверный логин или пароль / Поле обязательно</span>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">Войти</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
